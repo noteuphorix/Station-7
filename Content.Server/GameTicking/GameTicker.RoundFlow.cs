@@ -794,7 +794,7 @@ namespace Content.Server.GameTicking
                             // Countdown elapsed with no players — end the round.
                             _sawmill.Info("Server remained empty for the configured delay. Auto-ending round.");
                             _emptyServerRoundEndTime = null;
-                            _roundEndSystem.EndRound();
+                            _roundEndSystem.EndRound(TimeSpan.FromSeconds(10));
                             return;
                         }
                     }
