@@ -56,6 +56,15 @@ namespace Content.Server.GameTicking
 
         private string? _replayRoundText;
 
+        // --- EuphoriaPack: empty server auto-end ---
+        /// <summary>
+        /// The CurTime value at which an empty-server round will be force-ended.
+        /// Null means no countdown is active.
+        /// </summary>
+        [ViewVariables]
+        private TimeSpan? _emptyServerRoundEndTime;
+        // -------------------------------------------
+
         [ViewVariables]
         public GameRunLevel RunLevel
         {
@@ -765,6 +774,43 @@ namespace Content.Server.GameTicking
             if (RunLevel == GameRunLevel.InRound)
             {
                 RoundLengthMetric.Inc(frameTime);
+
+                // EuphoriaPack: auto-end round when server has been empty for the configured delay.
+                var emptyDelay = _cfg.GetCVar(CCVarsEuphoriaPack.EmptyServerRoundEndDelay);
+                if (emptyDelay > 0f)
+                {
+                    if (_playerManager.PlayerCount == 0)
+                    {
+                        if (_emptyServerRoundEndTime == null)
+                        {
+                            // Server just became empty — start the countdown.
+                            _emptyServerRoundEndTime = _gameTiming.CurTime + TimeSpan.FromSeconds(emptyDelay);
+                            _sawmill.Info($"Server is empty during round. Auto-ending in {emptyDelay}s if no players rejoin.");
+                        }
+                        else if (_gameTiming.CurTime >= _emptyServerRoundEndTime.Value)
+                        {
+                            // Countdown elapsed with no players — end the round.
+                            _sawmill.Info("Server remained empty for the configured delay. Auto-ending round.");
+                            _emptyServerRoundEndTime = null;
+                            EndRound(Loc.GetString("game-ticker-empty-server-round-end"));
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        // Players are present — cancel any active countdown.
+                        if (_emptyServerRoundEndTime != null)
+                        {
+                            _sawmill.Info("Player rejoined during empty-server countdown. Cancelling auto-end.");
+                            _emptyServerRoundEndTime = null;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // Reset the countdown if we leave InRound for any reason (e.g. admin force-restart).
+                _emptyServerRoundEndTime = null;
             }
 
             if (_roundStartTime == TimeSpan.Zero ||
