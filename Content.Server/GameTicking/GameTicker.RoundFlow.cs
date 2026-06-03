@@ -24,6 +24,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.RoundEnd;
 
 namespace Content.Server.GameTicking
 {
@@ -32,6 +33,7 @@ namespace Content.Server.GameTicking
         [Dependency] private DiscordWebhook _discord = default!;
         [Dependency] private RoleSystem _role = default!;
         [Dependency] private ITaskManager _taskManager = default!;
+        [Dependency] private RoundEndSystem _roundEndSystem = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -792,7 +794,7 @@ namespace Content.Server.GameTicking
                             // Countdown elapsed with no players — end the round.
                             _sawmill.Info("Server remained empty for the configured delay. Auto-ending round.");
                             _emptyServerRoundEndTime = null;
-                            EndRound(Loc.GetString("game-ticker-empty-server-round-end"));
+                            _roundEndSystem.EndRound();
                             return;
                         }
                     }
