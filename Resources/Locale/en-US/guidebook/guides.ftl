@@ -208,6 +208,8 @@ guide-entry-rules-e2 = E2
 guide-entry-rules-e3 = E3
 guide-entry-rules-e4 = E4
 guide-entry-rules-e5 = E5
+guide-entry-rules-e6 = E6
+guide-entry-rules-e7 = E7
 guide-entry-rules-euphoria = Euphoria Rules
 
 guide-entry-writing = Writing

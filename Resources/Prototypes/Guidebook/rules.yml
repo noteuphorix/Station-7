@@ -420,3 +420,15 @@
   name: guide-entry-rules-e5
   ruleEntry: true
   text: "/ServerInfo/Guidebook/ServerRules/EuphoriaRules/RuleE5Cheating.xml"
+
+- type: guideEntry
+  id: RuleE6
+  name: guide-entry-rules-e6
+  ruleEntry: true
+  text: "/ServerInfo/Guidebook/ServerRules/EuphoriaRules/RuleE6NoIdling.xml"
+
+- type: guideEntry
+  id: RuleE7
+  name: guide-entry-rules-e7
+  ruleEntry: true
+  text: "/ServerInfo/Guidebook/ServerRules/EuphoriaRules/RuleE7EnglishOnly.xml"
