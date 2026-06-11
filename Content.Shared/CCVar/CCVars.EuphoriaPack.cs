@@ -3,10 +3,10 @@
 namespace Content.Shared.CCVar;
 
 /// <summary>
-/// EuphoriaPack-specific CVars.
+/// Station7-specific CVars.
 /// </summary>
 [CVarDefs]
-public sealed partial class CCVarsEuphoriaPack
+public sealed partial class CCVarsStation7
 {
     /// <summary>
     /// How long (in seconds) the server must be empty during a round before the round

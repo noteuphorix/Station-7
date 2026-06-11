@@ -58,7 +58,7 @@ namespace Content.Server.GameTicking
 
         private string? _replayRoundText;
 
-        // --- EuphoriaPack: empty server auto-end ---
+        // --- Station7: empty server auto-end ---
         /// <summary>
         /// The CurTime value at which an empty-server round will be force-ended.
         /// Null means no countdown is active.
@@ -777,8 +777,8 @@ namespace Content.Server.GameTicking
             {
                 RoundLengthMetric.Inc(frameTime);
 
-                // EuphoriaPack: auto-end round when server has been empty for the configured delay.
-                var emptyDelay = _cfg.GetCVar(CCVarsEuphoriaPack.EmptyServerRoundEndDelay);
+                // Station7: auto-end round when server has been empty for the configured delay.
+                var emptyDelay = _cfg.GetCVar(CCVarsStation7.EmptyServerRoundEndDelay);
                 if (emptyDelay > 0f)
                 {
                     if (_playerManager.PlayerCount == 0)
