@@ -379,11 +379,11 @@
   text: "/ServerInfo/Guidebook/ServerRules/BanDurations.xml"
 
 - type: guideEntry
-  id: NarwalRules
-  name: guide-entry-rules-narwal
+  id: Station7Rules
+  name: guide-entry-rules-station7
   ruleEntry: true
   priority: 10
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules.xml"
   children:
   - RuleE1
   - RuleE2
@@ -398,46 +398,46 @@
   id: RuleE1
   name: guide-entry-rules-e1
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE1Respectful.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE1Respectful.xml"
 
 - type: guideEntry
   id: RuleE2
   name: guide-entry-rules-e2
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE2Griefing.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE2Griefing.xml"
 
 - type: guideEntry
   id: RuleE3
   name: guide-entry-rules-e3
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE3StayIC.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE3StayIC.xml"
 
 - type: guideEntry
   id: RuleE4
   name: guide-entry-rules-e4
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE4Admins.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE4Admins.xml"
 
 - type: guideEntry
   id: RuleE5
   name: guide-entry-rules-e5
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE5Cheating.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE5Cheating.xml"
 
 - type: guideEntry
   id: RuleE6
   name: guide-entry-rules-e6
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE6NoIdling.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE6NoIdling.xml"
 
 - type: guideEntry
   id: RuleE7
   name: guide-entry-rules-e7
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE7EnglishOnly.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE7EnglishOnly.xml"
 
 - type: guideEntry
   id: RuleE8
   name: guide-entry-rules-e8
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/NarwalRules/RuleE8MRP.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE8MRP.xml"
