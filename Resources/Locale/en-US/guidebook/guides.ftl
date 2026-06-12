@@ -210,8 +210,7 @@ guide-entry-rules-e4 = E4
 guide-entry-rules-e5 = E5
 guide-entry-rules-e6 = E6
 guide-entry-rules-e7 = E7
-guide-entry-rules-e8 = E8
-guide-entry-rules-station7 = Station7 Rules
+guide-entry-rules-station7 = Station 7 Rules
 
 guide-entry-writing = Writing
 guide-entry-glossary = Glossary

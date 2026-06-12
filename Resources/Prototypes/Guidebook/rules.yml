@@ -392,7 +392,6 @@
   - RuleE5
   - RuleE6
   - RuleE7
-  - RuleE8
 
 - type: guideEntry
   id: RuleE1
@@ -410,7 +409,7 @@
   id: RuleE3
   name: guide-entry-rules-e3
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE3StayIC.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE3RPStandards.xml"
 
 - type: guideEntry
   id: RuleE4
@@ -435,9 +434,3 @@
   name: guide-entry-rules-e7
   ruleEntry: true
   text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE7EnglishOnly.xml"
-
-- type: guideEntry
-  id: RuleE8
-  name: guide-entry-rules-e8
-  ruleEntry: true
-  text: "/ServerInfo/Guidebook/ServerRules/Station7Rules/RuleE8MRP.xml"
