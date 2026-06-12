@@ -5,6 +5,7 @@
   mapPath: /Maps/packed.yml
   minPlayers: 7
   maxPlayers: 35
+  fallback: true
   stations:
     Packed:
       stationProto: StandardNanotrasenStation
