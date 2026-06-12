@@ -1,0 +1,14 @@
+﻿- type: gameMapPool
+  id: Station7MapPool
+  maps:
+  - Bagel
+  - Box
+  - Elkridge
+  - Fland
+  - Marathon
+  - Oasis
+  - Packed
+  - Plasma
+  - Exo
+  - Snowball
+  - Serpentcrest
