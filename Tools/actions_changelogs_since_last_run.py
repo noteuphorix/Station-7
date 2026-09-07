@@ -238,13 +238,12 @@ def changelog_entries_to_message_lines(entries: Iterable[ChangelogEntry]) -> lis
             if url and not url.strip():
                 url = None
 
-            entry_labels = entry.get("labels") or []
-
             for change in entry["changes"]:
                 emoji = TYPES_TO_EMOJI.get(change["type"], "❓")
                 message = change["message"]
 
-                if EXPERIMENTAL_LABEL in entry_labels:
+                labels = entry.get("labels") or []
+                if EXPERIMENTAL_LABEL in labels:
                     emoji = f"{emoji}{EXPERIMENTAL_EMOJI}"
 
                 message_lines.append(create_change_line(emoji, message, url))
