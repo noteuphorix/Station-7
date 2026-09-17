@@ -3,7 +3,7 @@
   id: FloorSteel
   parent: BaseStationTile
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/Basic/Gray/gray.png
+  sprite: /Textures/Tiles/Basic/Gray/gray-mono.png
   itemDrop: FloorTileItemSteel
 
 - type: tile
@@ -245,3 +245,4 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemTechmaintDark
+
