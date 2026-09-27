@@ -5,6 +5,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
     inputs:
       dry_run:
