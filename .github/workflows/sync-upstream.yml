@@ -1,0 +1,45 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: "0 9 * * *" # daily, 09:00 UTC
+  workflow_dispatch: # allows manual runs from the Actions tab
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'noteuphorix/Station-7'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+          # PAT with Contents + Workflows write. The default GITHUB_TOKEN cannot push
+          # commits that touch .github/workflows, which upstream changes regularly.
+          token: ${{ secrets.SYNC_TOKEN }}
+
+      - name: Merge upstream/master (fails on conflicts)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git remote add upstream https://github.com/space-wizards/space-station-14.git
+          git fetch upstream master
+
+          if git merge-base --is-ancestor upstream/master HEAD; then
+            echo "Already up to date with upstream."
+            exit 0
+          fi
+
+          if ! git merge --no-edit upstream/master; then
+            echo "::error::Merge conflict with upstream/master. Resolve manually. Conflicting files:"
+            git diff --name-only --diff-filter=U
+            git merge --abort
+            exit 1
+          fi
+
+          git push origin master
