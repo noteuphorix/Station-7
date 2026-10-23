@@ -15,7 +15,7 @@ RELEASE_DIR = "release"
 # CONFIGURATION PARAMETERS
 # Forks should change these to publish to their own infrastructure.
 #
-ROBUST_CDN_URL = "http://ss14.narwal.llc:27690/"
+ROBUST_CDN_URL = "https://ss14.narwal.llc:27690/"
 FORK_ID = "euphoria"
 
 def get_publish_token() -> str:
