@@ -22,6 +22,7 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -41,6 +42,8 @@ public sealed partial class ServerGameTicker
     private static readonly Gauge RoundLengthMetric = Metrics.CreateGauge(
         "ss14_round_length",
         "Round length in seconds.");
+
+    private static readonly ProtoId<RoleTypePrototype> FamiliarRoleType = "Familiar";
 
 #if EXCEPTION_TOLERANCE
         [ViewVariables]
@@ -542,6 +545,8 @@ public sealed partial class ServerGameTicker
             }
 
             var roles = Role.MindGetAllRoleInfo(mindId);
+            var familiar = mind.MindRoleContainer.ContainedEntities.Any(role =>
+                TryComp<MindRoleComponent>(role, out var mindRole) && mindRole.RoleType == FamiliarRoleType);
 
             var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
             {
@@ -559,6 +564,7 @@ public sealed partial class ServerGameTicker
                 JobPrototypes = roles.Where(role => !role.Antagonist).Select(role => role.Prototype).ToArray(),
                 AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                 Observer = observer,
+                Familiar = familiar,
                 Connected = connected
             };
             listOfPlayerInfo.Add(playerEndRoundInfo);
